@@ -9,10 +9,10 @@ export default function Main() {
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
-            <ul>
-              <li>Titolo:{movie.title}</li>
-              <li>Titolo Originale:{movie.original_title}</li>
-              <li>
+            <div>
+              <div>Titolo:{movie.title}</div>
+              <div>Titolo Originale:{movie.original_title}</div>
+              <div>
                 Lingua:
                 {movie.original_language == flags.language ? (
                   <img
@@ -27,9 +27,13 @@ export default function Main() {
                     alt={movie.original_language}
                   />
                 )}
-              </li>
-              <li>Voto:{movie.vote_average}</li>
-            </ul>
+              </div>
+              <div>Voto:{movie.vote_average}</div>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+                alt=""
+              />
+            </div>
           </li>
         ))}
       </ul>
@@ -37,10 +41,10 @@ export default function Main() {
       <ul>
         {series.map((serie) => (
           <li key={serie.id}>
-            <ul>
-              <li>Titolo:{serie.name}</li>
-              <li>Titolo Originale:{serie.original_name}</li>
-              <li>
+            <div>
+              <div>Titolo:{serie.name}</div>
+              <div>Titolo Originale:{serie.original_name}</div>
+              <div>
                 Lingua:
                 {serie.original_language == flags.language ? (
                   <img
@@ -55,9 +59,13 @@ export default function Main() {
                     alt={serie.original_language}
                   />
                 )}
-              </li>
-              <li>Voto:{serie.vote_average}</li>
-            </ul>
+              </div>
+              <div>Voto:{serie.vote_average}</div>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${serie.backdrop_path}`}
+                alt=""
+              />
+            </div>
           </li>
         ))}
       </ul>
