@@ -8,8 +8,10 @@ const ArticleContext = createContext();
 
 function ArticleProvider({ children }) {
   const [movies, setMovies] = useState([]);
+  const [series, setSeries] = useState([]);
+
   return (
-    <ArticleContext.Provider value={{ movies, setMovies }}>
+    <ArticleContext.Provider value={{ movies, setMovies, series, setSeries }}>
       {children}
     </ArticleContext.Provider>
   );

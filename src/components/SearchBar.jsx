@@ -4,11 +4,19 @@ import { useArticleContext } from "../contexts/ArticleContext";
 
 export default function SearchBar() {
   const [search, setSearch] = useState("");
-  const { setMovies } = useArticleContext();
+  const { setMovies, setSeries } = useArticleContext();
 
   const handleSearch = (event) => {
     event.preventDefault();
-
+    axios
+      .get("https://api.themoviedb.org/3/search/tv", {
+        params: {
+          api_key: "ad45432ea3dedb4307729942a44a2710",
+          language: "it-IT",
+          query: search,
+        },
+      })
+      .then((res) => setSeries(res.data.results));
     axios
       .get("https://api.themoviedb.org/3/search/movie", {
         params: {
