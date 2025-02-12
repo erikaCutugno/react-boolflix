@@ -1,5 +1,6 @@
 import { useArticleContext } from "../contexts/ArticleContext";
 import flags from "../data/flag";
+// import LanguageFlag from "./LanguageFlag";
 import Stars from "./Stars";
 
 export default function Main() {
@@ -29,10 +30,17 @@ export default function Main() {
             <div>Titolo Originale:{movie.original_title}</div>
             <div>
               Lingua:
-              {movie.original_language == flags.language ? (
+              {/* <LanguageFlag movie={movie.original_language} /> */}
+              {flags.find(
+                (flag) => movie.original_language == flag.language
+              ) ? (
                 <img
                   className="flag"
-                  src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${flags.country}.svg`}
+                  src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${
+                    flags.find(
+                      (flag) => movie.original_language == flag.language
+                    ).country
+                  }.svg`}
                   alt={movie.original_language}
                 />
               ) : (
@@ -62,10 +70,17 @@ export default function Main() {
             <div>Titolo Originale:{serie.original_name}</div>
             <div>
               Lingua:
-              {serie.original_language == flags.language ? (
+              {/* <LanguageFlag movie={serie.original_language} /> */}
+              {flags.find(
+                (flag) => serie.original_language == flag.language
+              ) ? (
                 <img
                   className="flag"
-                  src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${flags.country}.svg`}
+                  src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${
+                    flags.find(
+                      (flag) => serie.original_language == flag.language
+                    ).country
+                  }.svg`}
                   alt={serie.original_language}
                 />
               ) : (
