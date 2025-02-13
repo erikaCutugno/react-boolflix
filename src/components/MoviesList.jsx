@@ -15,6 +15,7 @@ export default function MoviesList() {
             article={movie}
             title={movie.title}
             original={movie.original_title}
+            country={movie.original_language.toUpperCase()}
           ></Card>
         ))}
       </ul>

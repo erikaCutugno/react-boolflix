@@ -1,4 +1,3 @@
-// import LanguageFlag from "./LanguageFlag";
 import MoviesList from "./MoviesList";
 import SeriesList from "./SeriesList";
 

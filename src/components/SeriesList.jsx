@@ -15,6 +15,7 @@ export default function SeriesList() {
             article={serie}
             title={serie.name}
             original={serie.original_name}
+            country={serie.origin_country}
           ></Card>
         ))}
       </ul>

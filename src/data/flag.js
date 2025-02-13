@@ -1,9 +1,3 @@
-// const flags = {
-//   language: "en",
-//   country: "GB",
-// };
-
-// export default flags;
 const flags = [
   {
     language: "en",
@@ -16,6 +10,14 @@ const flags = [
   {
     language: "ko",
     country: "KR",
+  },
+  {
+    language: "zh",
+    country: "CN",
+  },
+  {
+    language: "te",
+    country: "IN",
   },
 ];
 export default flags;

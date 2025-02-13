@@ -6,7 +6,7 @@ const voteTot = (article) => {
   const vote = Math.round((article.vote_average - 1) / 2 + 1);
   return vote;
 };
-export default function Card({ article, title, original }) {
+export default function Card({ article, title, original, country }) {
   return (
     <li className="card">
       <div className="hover-card">
@@ -20,7 +20,7 @@ export default function Card({ article, title, original }) {
         </div>
         <div>
           <strong>Lingua:</strong>
-          {/* <LanguageFlag article={article.original_language} /> */}
+
           {flags.find((flag) => article.original_language == flag.language) ? (
             <img
               className="flag"
@@ -33,7 +33,7 @@ export default function Card({ article, title, original }) {
           ) : (
             <img
               className="flag"
-              src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${article.original_language.toUpperCase()}.svg`}
+              src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`}
               alt={article.original_language}
             />
           )}
