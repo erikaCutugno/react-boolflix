@@ -4,7 +4,7 @@ import { useArticleContext } from "../contexts/ArticleContext";
 
 export default function SearchBar() {
   const [search, setSearch] = useState("");
-  const { setMovies, setSeries } = useArticleContext();
+  const { setMovies, setSeries, setResultsSearch } = useArticleContext();
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -16,7 +16,12 @@ export default function SearchBar() {
           query: search,
         },
       })
-      .then((res) => setSeries(res.data.results));
+      .then((res) => {
+        setSeries(res.data.results);
+        setResultsSearch(true);
+        setSearch("");
+      });
+
     axios
       .get("https://api.themoviedb.org/3/search/movie", {
         params: {
@@ -25,7 +30,11 @@ export default function SearchBar() {
           query: search,
         },
       })
-      .then((res) => setMovies(res.data.results));
+      .then((res) => {
+        setMovies(res.data.results);
+        setResultsSearch(true);
+        setSearch("");
+      });
   };
 
   return (
@@ -36,7 +45,6 @@ export default function SearchBar() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <button type="submit">Cerca</button>
     </form>
   );
 }

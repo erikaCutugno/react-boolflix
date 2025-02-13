@@ -9,9 +9,19 @@ const ArticleContext = createContext();
 function ArticleProvider({ children }) {
   const [movies, setMovies] = useState([]);
   const [series, setSeries] = useState([]);
+  const [resultsSearch, setResultsSearch] = useState(false);
 
   return (
-    <ArticleContext.Provider value={{ movies, setMovies, series, setSeries }}>
+    <ArticleContext.Provider
+      value={{
+        movies,
+        setMovies,
+        series,
+        setSeries,
+        resultsSearch,
+        setResultsSearch,
+      }}
+    >
       {children}
     </ArticleContext.Provider>
   );
