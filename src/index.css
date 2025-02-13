@@ -18,13 +18,17 @@ header {
   padding: 16px;
   background-color: black;
   color: red;
+  position: sticky;
+  z-index: 1;
+  top: 0;
 }
 header .row {
   align-items: center;
 }
 /*----MAIN------*/
 main {
-  background-color: grey;
+  background-color: rgb(61, 58, 58);
+  min-height: 100vh;
 }
 .container {
   max-width: 1000px;
@@ -38,6 +42,9 @@ main {
   color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   cursor: pointer;
+}
+i {
+  color: yellow;
 }
 .poster {
   overflow: hidden;
