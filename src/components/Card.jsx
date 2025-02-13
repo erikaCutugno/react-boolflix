@@ -42,15 +42,17 @@ export default function Card({ article, title, original, country }) {
           <strong>Voto:</strong>
           <Stars vote={voteTot(article)} />
         </div>
-        <div>
-          <strong>Overview:</strong>
-          {article.overview}
-        </div>
+        {article.overview && (
+          <div>
+            <strong>Overview:</strong>
+            {article.overview}
+          </div>
+        )}
       </div>
       <div className="poster">
         <img
           src={`https://image.tmdb.org/t/p/w342${article.poster_path}`}
-          alt={article.title}
+          alt={title}
         />
       </div>
     </li>
