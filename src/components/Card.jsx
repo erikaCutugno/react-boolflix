@@ -6,14 +6,20 @@ const voteTot = (article) => {
   const vote = Math.round((article.vote_average - 1) / 2 + 1);
   return vote;
 };
-export default function Card({ article }) {
+export default function Card({ article, title, original }) {
   return (
     <li className="card">
       <div className="hover-card">
-        <div>Titolo:{article.title}</div>
-        <div>Titolo Originale:{article.original_title}</div>
         <div>
-          Lingua:
+          <strong>Titolo:</strong>
+          {title}
+        </div>
+        <div>
+          <strong>Titolo Originale:</strong>
+          {original}
+        </div>
+        <div>
+          <strong>Lingua:</strong>
           {/* <LanguageFlag article={article.original_language} /> */}
           {flags.find((flag) => article.original_language == flag.language) ? (
             <img
@@ -33,8 +39,12 @@ export default function Card({ article }) {
           )}
         </div>
         <div>
-          Voto:
+          <strong>Voto:</strong>
           <Stars vote={voteTot(article)} />
+        </div>
+        <div>
+          <strong>Overview:</strong>
+          {article.overview}
         </div>
       </div>
       <div className="poster">
