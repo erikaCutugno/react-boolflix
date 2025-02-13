@@ -1,6 +1,5 @@
-import flags from "../data/flag";
 import Stars from "./Stars";
-
+import LanguageFlag from "./LanguageFlag";
 //converto i voti da decimali
 const voteTot = (article) => {
   const vote = Math.round((article.vote_average - 1) / 2 + 1);
@@ -20,23 +19,10 @@ export default function Card({ article, title, original, country }) {
         </div>
         <div>
           <strong>Lingua:</strong>
-
-          {flags.find((flag) => article.original_language == flag.language) ? (
-            <img
-              className="flag"
-              src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${
-                flags.find((flag) => article.original_language == flag.language)
-                  .country
-              }.svg`}
-              alt={article.original_language}
-            />
-          ) : (
-            <img
-              className="flag"
-              src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${country}.svg`}
-              alt={article.original_language}
-            />
-          )}
+          <LanguageFlag
+            country={country}
+            language={article.original_language}
+          ></LanguageFlag>
         </div>
         <div>
           <strong>Voto:</strong>
