@@ -39,6 +39,7 @@ export default function Card({ article, title, original, country }) {
         <img
           src={`https://image.tmdb.org/t/p/w342${article.poster_path}`}
           alt={title}
+          className="poster-img"
         />
       </div>
     </li>
