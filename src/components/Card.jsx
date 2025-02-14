@@ -1,11 +1,26 @@
+import { useState } from "react";
 import Stars from "./Stars";
 import LanguageFlag from "./LanguageFlag";
+
 //converto i voti da decimali
 const voteTot = (article) => {
   const vote = Math.round((article.vote_average - 1) / 2 + 1);
   return vote;
 };
 export default function Card({ article, title, original, country }) {
+  //per il caricamento dell'immagine
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageLoad = () => {
+    setImageLoading(false);
+  };
+
+  const handleImageError = () => {
+    setImageLoading(false);
+    setImageError(true);
+  };
+
   return (
     <li className="card">
       <div className="hover-card">
@@ -36,10 +51,17 @@ export default function Card({ article, title, original, country }) {
         )}
       </div>
       <div className="poster">
+        {imageLoading && <div className="loading-spinner">Loading...</div>}
         <img
-          src={`https://image.tmdb.org/t/p/w342${article.poster_path}`}
+          src={
+            imageError
+              ? "./img/IMG_1843.jpg"
+              : `https://image.tmdb.org/t/p/w342${article.poster_path}`
+          }
           alt={title}
-          className="poster-img"
+          onLoad={handleImageLoad}
+          onError={handleImageError}
+          className={`poster-img ${imageLoading ? "loading" : "loaded"}`}
         />
       </div>
     </li>
